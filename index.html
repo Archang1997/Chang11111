@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KK Luxury Travel</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
+      color: #fff;
+      margin: 0;
+    }
+
+    nav {
+      background: #111;
+      padding: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #00aaff;
+    }
+
+    .lang-switch {
+      margin-left: auto;
+    }
+
+    .hero {
+      background: url(hero.jpg.jpg) center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 4em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.5em 1em;
+      border-radius: 8px;
+    }
+
+    .hero a.btn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: white;
+      color: black;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .card {
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .card a {
+      display: block;
+      color: #00aaff;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .qrcode {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+    }
+
+    .qrcode img {
+      width: 120px;
+      height: 120px;
+    }
+
+    form {
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div>
+    <a href="#services">บริการของเรา</a>
+    <a href="#cars">ราคารถ</a>
+    <a href="#review">รีวิว</a>
+    <a href="#contact">ติดต่อเรา</a>
+  </div>
+  <div class="lang-switch">
+    <a href="#">TH</a> | <a href="#">EN</a> | <a href="#">中文</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>KK Luxury Travel</h1>
+  <a href="#services" class="btn">ดูบริการของเรา</a>
+</div>
+
+<!-- ✅ บริการของเรา (แบบใหม่ที่คุณให้มา) -->
+<section id="services" class="py-12 bg-[url('bg-tab.png')] bg-cover bg-center text-white">
+  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8">บริการของเรา</h2>
+
+  <!-- รถ SUV -->
+  <div class="bg-zinc-900 bg-opacity-80 rounded-xl p-6 mb-6 flex flex-col md:flex-row justify-between items-center">
+    <div class="md:w-3/4 pr-4">
+      <h3 class="text-xl font-bold text-white mb-2">รถ <span class="text-blue-400">SUV</span></h3>
+      <p class="text-lg">Toyota Fortuner / Honda CR-V</p>
+      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block">ดูราคา →</a>
+    </div>
+    <div class="md:w-1/4 mt-4 md:mt-0">
+      <img src="honda.png" alt="SUV" class="w-full h-auto max-w-[150px] rounded-xl shadow-md">
+    </div>
+  </div>
+
+  <!-- รถ VIP+ -->
+  <div class="bg-zinc-900 bg-opacity-80 rounded-xl p-6 mb-6 flex flex-col md:flex-row justify-between items-center">
+    <div class="md:w-3/4 pr-4">
+      <h3 class="text-xl font-bold text-white mb-2">รถ <span class="text-blue-400">VIP+</span></h3>
+      <p class="text-lg">Alphard / Hyundai H1 VIP</p>
+      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block">ดูราคา →</a>
+    </div>
+    <div class="md:w-1/4 mt-4 md:mt-0">
+      <img src="ALFA.png" alt="VIP+" class="w-full h-auto max-w-[150px] rounded-xl shadow-md">
+    </div>
+  </div>
+
+  <!-- ซีดาน -->
+  <div class="bg-zinc-900 bg-opacity-80 rounded-xl p-6 mb-6 flex flex-col md:flex-row justify-between items-center">
+    <div class="md:w-3/4 pr-4">
+      <h3 class="text-xl font-bold text-white mb-2">ซีดาน</h3>
+      <p class="text-lg">Camry / Accord</p>
+      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block">ดูราคา →</a>
+    </div>
+    <div class="md:w-1/4 mt-4 md:mt-0">
+      <img src="toyota.png" alt="Sedan" class="w-full h-auto max-w-[150px] rounded-xl shadow-md">
+    </div>
+  </div>
+
+  <!-- รถตู้ -->
+  <div class="bg-zinc-900 bg-opacity-80 rounded-xl p-6 mb-6 flex flex-col md:flex-row justify-between items-center">
+    <div class="md:w-3/4 pr-4">
+      <h3 class="text-xl font-bold text-white mb-2">รถตู้</h3>
+      <p class="text-lg">Majesty / Commuter</p>
+      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block">ดูราคา →</a>
+    </div>
+    <div class="md:w-1/4 mt-4 md:mt-0">
+      <img src="รถตู้.png" alt="Van" class="w-full h-auto max-w-[150px] rounded-xl shadow-md">
+    </div>
+  </div>
+</section>
+
+<!-- ราคารถ -->
+<section id="cars" class="py-12">
+  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8">ราคารถแต่ละรุ่น</h2>
+  <div class="card">
+    <p><strong>SUV:</strong> 1,500 – 4,000 บาท/วัน (พร้อมคนขับ: 1,800 - 5,000)</p>
+    <p>เหมาะสำหรับครอบครัว เดินทางไกล</p>
+  </div>
+  <div class="card">
+    <p><strong>VIP+:</strong> 3,500 – 9,000 บาท/วัน (พร้อมคนขับ: 4,000 - 9,500)</p>
+    <p>เบาะ VIP ทีวี ตู้เย็น คนขับพูดจีนได้</p>
+  </div>
+  <div class="card">
+    <p><strong>ซีดาน:</strong> 1,500 – 4,000 บาท/วัน (พร้อมคนขับ: 1,800 - 5,000)</p>
+    <p>ประหยัดน้ำมัน สะดวกในเมือง</p>
+  </div>
+  <div class="card">
+    <p><strong>รถตู้:</strong> 1,800 - 6,000 บาท/วัน</p>
+    <p>กลุ่มเพื่อน ครอบครัว กรุ๊ปทัวร์</p>
+  </div>
+</section>
+
+<!-- รีวิว -->
+<section id="review" class="py-12">
+  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8">รีวิวลูกค้า</h2>
+  <div class="card">
+    <p>“บริการดีมาก รถใหม่ คนขับสุภาพ!” — คุณหลิว จากจีน</p>
+  </div>
+  <div class="card">
+    <p>“แนะนำเลย สะดวก ปลอดภัย” — คุณวิภา จากเชียงใหม่</p>
+  </div>
+</section>
+
+<!-- ติดต่อเรา -->
+<section id="contact" class="py-12">
+  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8">ติดต่อเรา</h2>
+  <div class="qrcode">
+    <div>
+      <p>LINE</p>
+      <img src="qrcode_line.jpg" alt="LINE QR" />
+    </div>
+    <div>
+      <p>WeChat</p>
+      <img src="qrcode_wechat.jpg" alt="WeChat QR" />
+    </div>
+  </div>
+
+  <form>
+    <input type="text" placeholder="ชื่อของคุณ" />
+    <input type="email" placeholder="อีเมลของคุณ" />
+    <textarea rows="4" placeholder="ข้อความของคุณ"></textarea>
+    <button type="submit" style="padding:10px 30px;">ส่งข้อความ</button>
+  </form>
+</section>
+
+<footer>
+  KK Travel & Car Rental © 2025<br>
+  ที่ตั้ง: 88/85 บางกอกบูเลอวาร์ด รามอินทรา 3<br>
+  โทร: 0966808263 • WeChat: jacky0767
+</footer>
+
+</body>
+</html>
