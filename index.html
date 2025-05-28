@@ -127,7 +127,7 @@
   <div>
     <a href="#services" data-th="บริการของเรา" data-en="Our Services" data-zh="我们的服务">บริการของเรา</a>
     <a href="#cars" data-th="ราคารถ" data-en="Car Prices" data-zh="车辆价格">ราคารถ</a>
-    <a href="#review" data-th="รีวิว" data-en="Reviews" data-zh="客户评价">รีวิว</a>
+    <a href="#review-display" data-th="รีวิว" data-en="Reviews" data-zh="客户评价">รีวิว</a>
     <a href="#contact" data-th="ติดต่อเรา" data-en="Contact Us" data-zh="联系我们">ติดต่อเรา</a>
   </div>
   <div class="lang-switch">
@@ -250,7 +250,7 @@
   <form onsubmit="addReview(event)">
     <input type="text" name="name" placeholder="ชื่อของคุณ" data-th="ชื่อของคุณ" data-en="Your Name" data-zh="您的名字" required style="color: black;" />
     <textarea name="review" rows="4" placeholder="รีวิวของคุณ" data-th="รีวิวของคุณ" data-en="Your Review" data-zh="您的评价" required style="color: black;"></textarea>
-    <button type="submit" style="padding:10px 30px; color: rgb(244, 241, 241);"
+    <button type="submit" style="padding:10px 30px; color: black;"
             data-th="ส่งรีวิว" data-en="Send Review" data-zh="发送评价">ส่งรีวิว</button>
   </form>
 </section>
@@ -276,8 +276,11 @@ function addReview(event) {
   if (children.length >= 4) {
     container.removeChild(children[children.length - 1]);
   }
+
   container.prepend(entry);
   event.target.reset();
+
+  document.getElementById("review-display").scrollIntoView({ behavior: "smooth" });
 }
 </script>
 
