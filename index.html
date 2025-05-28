@@ -235,12 +235,19 @@
     </div>
   </div>
 
-  <form action="mazhichang914@gmail.com" method="POST" enctype="text/plain">
-    <input type="text" name="name" placeholder="ชื่อของคุณ" data-th="ชื่อของคุณ" data-en="Your Name" data-zh="您的名字" required style="color: black;" />
-    <input type="email" name="email" placeholder="อีเมลของคุณ" data-th="อีเมลของคุณ" data-en="Your Email" data-zh="您的邮箱" required style="color: black;" />
-    <textarea name="message" rows="4" placeholder="ข้อความของคุณ" data-th="ข้อความของคุณ" data-en="Your Message" data-zh="您的留言" required style="color: black;"></textarea>
-    <button type="submit" style="padding:10px 30px; color: #fefefe;" data-th="ส่งข้อความ" data-en="Send Message" data-zh="发送信息">ส่งข้อความ</button>
-  </form>
+  <form action="https://formsubmit.co/mazhichang914@gmail.com" method="POST">
+  <input type="text" name="name" placeholder="ชื่อของคุณ" required style="color: black;" />
+  <input type="email" name="email" placeholder="อีเมลของคุณ" required style="color: black;" />
+  <textarea name="message" rows="4" placeholder="ข้อความของคุณ" required style="color: black;"></textarea>
+
+  <!-- ป้องกันบอท -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- หน้าแสดงหลังส่งสำเร็จ -->
+  <input type="hidden" name="_next" value="https://archang1997.github.io/kk-travel-thailand/thankyou.html">
+
+  <button type="submit" style="padding:10px 30px; color: rgb(255, 255, 255);">ส่งข้อความ</button>
+</form>
 </section>
 
 <!-- รีวิวลูกค้า -->
