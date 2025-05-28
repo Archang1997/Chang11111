@@ -3,20 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KK Luxury Travel</title>
+  <title data-th="KK Luxury Travel" data-en="KK Luxury Travel" data-zh="KK豪华旅游">KK Luxury Travel</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #000;
       color: #fff;
       margin: 0;
     }
-
     nav {
       background: #111;
       padding: 1em;
@@ -24,22 +20,15 @@
       justify-content: space-between;
       align-items: center;
     }
-
     nav a {
       color: #fff;
       text-decoration: none;
       margin: 0 10px;
       font-weight: bold;
     }
-
     nav a:hover {
       color: #00aaff;
     }
-
-    .lang-switch {
-      margin-left: auto;
-    }
-
     .hero {
       background: url(hero.jpg.jpg) center/cover no-repeat;
       height: 90vh;
@@ -48,16 +37,13 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: white;
     }
-
     .hero h1 {
       font-size: 4em;
       background: rgba(0, 0, 0, 0.6);
       padding: 0.5em 1em;
       border-radius: 8px;
     }
-
     .hero a.btn {
       margin-top: 20px;
       padding: 15px 30px;
@@ -67,44 +53,37 @@
       text-decoration: none;
       font-weight: bold;
     }
-
     section {
       max-width: 960px;
       margin: auto;
     }
-
     .card {
       background: #111;
       padding: 20px;
       border-radius: 10px;
       margin-bottom: 20px;
     }
-
     .card a {
       display: block;
       color: #00aaff;
       text-decoration: none;
       margin-top: 10px;
     }
-
     .qrcode {
       display: flex;
       justify-content: space-around;
       margin-top: 30px;
     }
-
     .qrcode img {
       width: 120px;
       height: 120px;
     }
-
     form {
       background: #111;
       padding: 20px;
       border-radius: 10px;
       margin-top: 20px;
     }
-
     input,
     textarea {
       width: 100%;
@@ -113,7 +92,6 @@
       border: none;
       border-radius: 6px;
     }
-
     footer {
       background: #111;
       text-align: center;
@@ -121,36 +99,64 @@
       color: #888;
     }
   </style>
+  <script>
+    function setLanguage(lang) {
+      localStorage.setItem('selectedLanguage', lang);
+      applyLanguage(lang);
+    }
+
+    function applyLanguage(lang) {
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        if ('placeholder' in el) {
+          el.placeholder = el.getAttribute('data-' + lang);
+        } else {
+          el.textContent = el.getAttribute('data-' + lang);
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('selectedLanguage') || 'th';
+      applyLanguage(savedLang);
+    });
+  </script>
 </head>
 <body>
 
 <nav>
   <div>
-    <a href="#services">บริการของเรา</a>
-    <a href="#cars">ราคารถ</a>
-    <a href="#review">รีวิว</a>
-    <a href="#contact">ติดต่อเรา</a>
+    <a href="#services" data-th="บริการของเรา" data-en="Our Services" data-zh="我们的服务">บริการของเรา</a>
+    <a href="#cars" data-th="ราคารถ" data-en="Car Prices" data-zh="车辆价格">ราคารถ</a>
+    <a href="#review" data-th="รีวิว" data-en="Reviews" data-zh="客户评价">รีวิว</a>
+    <a href="#contact" data-th="ติดต่อเรา" data-en="Contact Us" data-zh="联系我们">ติดต่อเรา</a>
   </div>
   <div class="lang-switch">
-    <a href="#">TH</a> | <a href="#">EN</a> | <a href="#">中文</a>
+    <a href="#" onclick="setLanguage('th')">TH</a> |
+    <a href="#" onclick="setLanguage('en')">EN</a> |
+    <a href="#" onclick="setLanguage('zh')">中文</a>
   </div>
 </nav>
 
 <div class="hero">
-  <h1>KK Luxury Travel</h1>
-  <a href="#services" class="btn">ดูบริการของเรา</a>
+  <h1 data-th="KK ลักชัวรี่ทราเวล" data-en="KK Luxury Travel" data-zh="KK豪华旅游">KK Luxury Travel</h1>
+  <a href="#services" class="btn" data-th="ดูบริการของเรา" data-en="See Our Services" data-zh="查看我们的服务">ดูบริการของเรา</a>
 </div>
+
+<!-- ✅ เพิ่มส่วนบริการของเราและราคารถ พร้อมคำแปลต่อด้านล่าง -->
+
+</body>
+</html>
 
 <!-- ✅ บริการของเรา (แบบใหม่ที่คุณให้มา) -->
 <section id="services" class="py-12 bg-[url('bg-tab.png')] bg-cover bg-center text-white">
-  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8">บริการของเรา</h2>
+  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8" data-th="บริการของเรา" data-en="Our Services" data-zh="我们的服务">บริการของเรา</h2>
 
   <!-- รถ SUV -->
   <div class="bg-zinc-900 bg-opacity-80 rounded-xl p-6 mb-6 flex flex-col md:flex-row justify-between items-center">
     <div class="md:w-3/4 pr-4">
-      <h3 class="text-xl font-bold text-white mb-2">รถ <span class="text-blue-400">SUV</span></h3>
-      <p class="text-lg">Toyota Fortuner / Honda CR-V</p>
-      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block">ดูราคา →</a>
+      <h3 class="text-xl font-bold text-white mb-2" data-th="รถ SUV" data-en="SUV" data-zh="SUV车">รถ <span class="text-blue-400">SUV</span></h3>
+      <p class="text-lg" data-th="Toyota Fortuner / Honda CR-V" data-en="Toyota Fortuner / Honda CR-V" data-zh="东京 Toyota Fortuner / 本田 CR-V">Toyota Fortuner / Honda CR-V</p>
+      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block" data-th="ดูราคา" data-en="See Price" data-zh="查看价格">ดูราคา →</a>
     </div>
     <div class="md:w-1/4 mt-4 md:mt-0">
       <img src="honda.png" alt="SUV" class="w-full h-auto max-w-[150px] rounded-xl shadow-md">
@@ -160,9 +166,9 @@
   <!-- รถ VIP+ -->
   <div class="bg-zinc-900 bg-opacity-80 rounded-xl p-6 mb-6 flex flex-col md:flex-row justify-between items-center">
     <div class="md:w-3/4 pr-4">
-      <h3 class="text-xl font-bold text-white mb-2">รถ <span class="text-blue-400">VIP+</span></h3>
-      <p class="text-lg">Alphard / Hyundai H1 VIP</p>
-      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block">ดูราคา →</a>
+      <h3 class="text-xl font-bold text-white mb-2" data-th="รถ VIP+" data-en="VIP+" data-zh="VIP+车">รถ <span class="text-blue-400">VIP+</span></h3>
+      <p class="text-lg" data-th="Alphard / Hyundai H1 VIP" data-en="Alphard / Hyundai H1 VIP" data-zh="Alphard / 环球 H1 VIP">Alphard / Hyundai H1 VIP</p>
+      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block" data-th="ดูราคา" data-en="See Price" data-zh="查看价格">ดูราคา →</a>
     </div>
     <div class="md:w-1/4 mt-4 md:mt-0">
       <img src="ALFA.png" alt="VIP+" class="w-full h-auto max-w-[150px] rounded-xl shadow-md">
@@ -172,9 +178,9 @@
   <!-- ซีดาน -->
   <div class="bg-zinc-900 bg-opacity-80 rounded-xl p-6 mb-6 flex flex-col md:flex-row justify-between items-center">
     <div class="md:w-3/4 pr-4">
-      <h3 class="text-xl font-bold text-white mb-2">ซีดาน</h3>
-      <p class="text-lg">Camry / Accord</p>
-      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block">ดูราคา →</a>
+      <h3 class="text-xl font-bold text-white mb-2" data-th="ซีดาน" data-en="Sedan" data-zh="轿车">ซีดาน</h3>
+      <p class="text-lg" data-th="Camry / Accord" data-en="Camry / Accord" data-zh="卡米里 / 雅阁">Camry / Accord</p>
+      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block" data-th="ดูราคา" data-en="See Price" data-zh="查看价格">ดูราคา →</a>
     </div>
     <div class="md:w-1/4 mt-4 md:mt-0">
       <img src="toyota.png" alt="Sedan" class="w-full h-auto max-w-[150px] rounded-xl shadow-md">
@@ -184,9 +190,9 @@
   <!-- รถตู้ -->
   <div class="bg-zinc-900 bg-opacity-80 rounded-xl p-6 mb-6 flex flex-col md:flex-row justify-between items-center">
     <div class="md:w-3/4 pr-4">
-      <h3 class="text-xl font-bold text-white mb-2">รถตู้</h3>
-      <p class="text-lg">Majesty / Commuter</p>
-      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block">ดูราคา →</a>
+      <h3 class="text-xl font-bold text-white mb-2" data-th="รถตู้" data-en="Van" data-zh="革车">รถตู้</h3>
+      <p class="text-lg" data-th="Majesty / Commuter" data-en="Majesty / Commuter" data-zh="Majesty / 工人车">Majesty / Commuter</p>
+      <a href="#cars" class="text-blue-400 hover:underline mt-2 inline-block" data-th="ดูราคา" data-en="See Price" data-zh="查看价格">ดูราคา →</a>
     </div>
     <div class="md:w-1/4 mt-4 md:mt-0">
       <img src="รถตู้.png" alt="Van" class="w-full h-auto max-w-[150px] rounded-xl shadow-md">
@@ -194,65 +200,95 @@
   </div>
 </section>
 
-<!-- ราคารถ -->
+<!-- ราคารถ์ -->
 <section id="cars" class="py-12">
-  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8">ราคารถแต่ละรุ่น</h2>
+  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8" data-th="ราคารถแต่ละรุ่น" data-en="Car Rental Prices" data-zh="各车型价格">ราคารถแต่ละรุ่น</h2>
   <div class="card">
-    <p><strong>SUV:</strong> 1,500 – 4,000 บาท/วัน (พร้อมคนขับ: 1,800 - 5,000)</p>
-    <p>เหมาะสำหรับครอบครัว เดินทางไกล</p>
+    <p data-th="SUV: 1,500 – 4,000 บาท/วัน (พร้อมคนขับ: 1,800 - 5,000)" data-en="SUV: 1,500 – 4,000 THB/day (with driver: 1,800 - 5,000)" data-zh="SUV：1,500 – 4,000 泰铢/天（含司机：1,800 - 5,000）"><strong>SUV:</strong> 1,500 – 4,000 บาท/วัน (พร้อมคนขับ: 1,800 - 5,000)</p>
+    <p data-th="เหมาะสำหรับครอบครัว เดินทางไกล" data-en="Ideal for families and long trips" data-zh="适合家庭与长途旅行">เหมาะสำหรับครอบครัว เดินทางไกล</p>
   </div>
   <div class="card">
-    <p><strong>VIP+:</strong> 3,500 – 9,000 บาท/วัน (พร้อมคนขับ: 4,000 - 9,500)</p>
-    <p>เบาะ VIP ทีวี ตู้เย็น คนขับพูดจีนได้</p>
+    <p data-th="VIP+: 3,500 – 9,000 บาท/วัน (พร้อมคนขับ: 4,000 - 9,500)" data-en="VIP+: 3,500 – 9,000 THB/day (with driver: 4,000 - 9,500)" data-zh="VIP+：3,500 – 9,000 泰铢/天（含司机：4,000 - 9,500）"><strong>VIP+:</strong> 3,500 – 9,000 บาท/วัน (พร้อมคนขับ: 4,000 - 9,500)</p>
+    <p data-th="เบาะ VIP ทีวี ตู้เย็น คนขับพูดจีนได้" data-en="VIP seats, TV, fridge, Chinese-speaking driver" data-zh="VIP座椅、电视、冰箱、会中文的司机">เบาะ VIP ทีวี ตู้เย็น คนขับพูดจีนได้</p>
   </div>
   <div class="card">
-    <p><strong>ซีดาน:</strong> 1,500 – 4,000 บาท/วัน (พร้อมคนขับ: 1,800 - 5,000)</p>
-    <p>ประหยัดน้ำมัน สะดวกในเมือง</p>
+    <p data-th="ซีดาน: 1,500 – 4,000 บาท/วัน (พร้อมคนขับ: 1,800 - 5,000)" data-en="Sedan: 1,500 – 4,000 THB/day (with driver: 1,800 - 5,000)" data-zh="轿车：1,500 – 4,000 泰铢/天（含司机：1,800 - 5,000）"><strong>ซีดาน:</strong> 1,500 – 4,000 บาท/วัน (พร้อมคนขับ: 1,800 - 5,000)</p>
+    <p data-th="ประหยัดน้ำมัน สะดวกในเมือง" data-en="Fuel efficient, convenient in the city" data-zh="省油，城市通勤方便">ประหยัดน้ำมัน สะดวกในเมือง</p>
   </div>
   <div class="card">
-    <p><strong>รถตู้:</strong> 1,800 - 6,000 บาท/วัน</p>
-    <p>กลุ่มเพื่อน ครอบครัว กรุ๊ปทัวร์</p>
-  </div>
-</section>
-
-<!-- รีวิว -->
-<section id="review" class="py-12">
-  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8">รีวิวลูกค้า</h2>
-  <div class="card">
-    <p>“บริการดีมาก รถใหม่ คนขับสุภาพ!” — คุณหลิว จากจีน</p>
-  </div>
-  <div class="card">
-    <p>“แนะนำเลย สะดวก ปลอดภัย” — คุณวิภา จากเชียงใหม่</p>
+    <p data-th="รถตู้: 1,800 - 6,000 บาท/วัน" data-en="Van: 1,800 - 6,000 THB/day" data-zh="面包车：1,800 - 6,000 泰铢/天"><strong>รถตู้:</strong> 1,800 - 6,000 บาท/วัน</p>
+    <p data-th="กลุ่มเพื่อน ครอบครัว กรุ๊ปทัวร์" data-en="Group of friends, family, or tours" data-zh="适合朋友、家庭或旅游团">กลุ่มเพื่อน ครอบครัว กรุ๊ปทัวร์</p>
   </div>
 </section>
 
 <!-- ติดต่อเรา -->
 <section id="contact" class="py-12">
-  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8">ติดต่อเรา</h2>
+  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8" data-th="ติดต่อเรา" data-en="Contact Us" data-zh="联系我们">ติดต่อเรา</h2>
   <div class="qrcode">
     <div>
-      <p>LINE</p>
+      <p data-th="LINE" data-en="LINE" data-zh="LINE">LINE</p>
       <img src="qrcode_line.jpg" alt="LINE QR" />
     </div>
     <div>
-      <p>WeChat</p>
+      <p data-th="WeChat" data-en="WeChat" data-zh="微信">WeChat</p>
       <img src="qrcode_wechat.jpg" alt="WeChat QR" />
     </div>
   </div>
 
-  <form style="color: black;">
-  <input type="text" placeholder="ชื่อของคุณ" style="color: black;" />
-  <input type="email" placeholder="อีเมลของคุณ" style="color: black;" />
-  <textarea rows="4" placeholder="ข้อความของคุณ" style="color: black;"></textarea>
-  <button type="submit" style="padding:10px 30px; color: #edf0f1;">ส่งข้อความ</button>
-</form>
+  <form action="mazhichang914@gmail.com" method="POST" enctype="text/plain">
+    <input type="text" name="name" placeholder="ชื่อของคุณ" data-th="ชื่อของคุณ" data-en="Your Name" data-zh="您的名字" required style="color: black;" />
+    <input type="email" name="email" placeholder="อีเมลของคุณ" data-th="อีเมลของคุณ" data-en="Your Email" data-zh="您的邮箱" required style="color: black;" />
+    <textarea name="message" rows="4" placeholder="ข้อความของคุณ" data-th="ข้อความของคุณ" data-en="Your Message" data-zh="您的留言" required style="color: black;"></textarea>
+    <button type="submit" style="padding:10px 30px; color: #fefefe;" data-th="ส่งข้อความ" data-en="Send Message" data-zh="发送信息">ส่งข้อความ</button>
+  </form>
 </section>
+
+<!-- รีวิวลูกค้า -->
+<section id="review-form" class="py-12">
+  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8"
+      data-th="ส่งรีวิว" data-en="Submit a Review" data-zh="提交评价">ส่งรีวิว</h2>
+  <form onsubmit="addReview(event)">
+    <input type="text" name="name" placeholder="ชื่อของคุณ" data-th="ชื่อของคุณ" data-en="Your Name" data-zh="您的名字" required style="color: black;" />
+    <textarea name="review" rows="4" placeholder="รีวิวของคุณ" data-th="รีวิวของคุณ" data-en="Your Review" data-zh="您的评价" required style="color: black;"></textarea>
+    <button type="submit" style="padding:10px 30px; color: rgb(244, 241, 241);"
+            data-th="ส่งรีวิว" data-en="Send Review" data-zh="发送评价">ส่งรีวิว</button>
+  </form>
+</section>
+
+<!-- รีวิวแสดงผล -->
+<section id="review-display" class="py-12">
+  <h2 class="text-3xl font-bold text-center text-blue-400 mb-8" data-th="รีวิวจากลูกค้า" data-en="Customer Reviews" data-zh="客户评价">รีวิวจากลูกค้า</h2>
+  <div id="review-list" class="space-y-4 px-4"></div>
+</section>
+
+<script>
+function addReview(event) {
+  event.preventDefault();
+  const name = event.target.name.value;
+  const review = event.target.review.value;
+
+  const container = document.getElementById('review-list');
+  const entry = document.createElement('div');
+  entry.className = 'card';
+  entry.innerHTML = `<p><strong>${name}</strong>: ${review}</p>`;
+
+  const children = container.children;
+  if (children.length >= 4) {
+    container.removeChild(children[children.length - 1]);
+  }
+  container.prepend(entry);
+  event.target.reset();
+}
+</script>
 
 <footer>
   KK Travel & Car Rental © 2025<br>
-  ที่ตั้ง: 88/85 บางกอกบูเลอวาร์ด รามอินทรา 3<br>
-  โทร: 0966808263 • WeChat: jacky0767
+  <span data-th="ที่ตั้ง: 88/85 บางกอกบูเลอวาร์ด รามอินทรา 3" data-en="Address: 88/85 Bangkok Boulevard, Ramintra 3" data-zh="地址：88/85 曼谷大道，Ramintra 3">ที่ตั้ง: 88/85 บางกอกบูเลอวาร์ด รามอินทรา 3</span><br>
+  <span data-th="โทร: 0966808263 • WeChat: jacky0767" data-en="Tel: 0966808263 • WeChat: jacky0767" data-zh="电话：0966808263 • 微信：jacky0767">โทร: 0966808263 • WeChat: jacky0767</span>
 </footer>
 
 </body>
 </html>
+
+
+
